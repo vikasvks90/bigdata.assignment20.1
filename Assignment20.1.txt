@@ -1,0 +1,4 @@
+-- Read a file from HDFS and based on the id field, perform UPSERT in MySQL table.
+-- here we are updating mysql table company using username:acadgild, database:db1, file has been placed at path '/user/acadgild/sqoop' in hdfs
+
+sqoop export --connect jdbc:mysql://localhost/db1 --username 'acadgild' -P --table 'company' --export-dir '/user/acadgild/sqoop' --input-fields-terminated-by ',' -m 1 --columns id,name,location
